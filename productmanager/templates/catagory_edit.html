@@ -1,0 +1,33 @@
+{% extends 'master/base.html' %}
+
+
+{% block head %}
+<title>Category Add</title>
+{% endblock head %}
+    
+
+
+{% block body %}
+{% include 'master/messages.html' %}
+<h1>Category Add</h1>   
+
+<form method="POST">
+    {% csrf_token %}
+    
+
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Category_Name</label>
+        <input type="text" name="category_name" value="{{cat_data.category_name}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Description</label>
+    <input type="text" name="description" value="cat_data.description" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+
+  
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock body %}
+    

@@ -1,0 +1,66 @@
+{% extends 'master/base.html' %}
+
+
+{% block head %}
+<title>Product Edit</title>
+{% endblock head %}
+    
+
+
+{% block body %}
+{% include 'master/messages.html' %}
+<h1>Product Edit</h1>   
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">product_name</label>
+        <input type="text" name="product_name" value="{{Product.product_name}}" class="form-control" id="" aria-describedby="">
+    </div>
+
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">product_description</label>
+    <input type="text" name="product_description" value="{{Product.product_description}}" class="form-control" id="" aria-describedby="">
+  </div>
+
+  <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">product_image</label>
+        <input type="file" name="product_image" class="form-control" id="" aria-describedby="">
+        <img src="/{{Product.product_image}}" alt="" width="100px">
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Role</label>
+       <select class="form-select" name="category_name" aria-label="Default select example">
+            <option selected>Open this select menu</option>     
+            {% for c in pro_catagory %}
+                <option value="{{c.id}}" 
+                {% if Product.category.category_name == c.category_name %}
+                    selected
+                {% endif %}
+                    >{{c.category_name}}</option>   
+            {% endfor %}       
+        </select>
+    </div>
+
+
+    <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">price</label>
+    <input type="number" name="price" value="{{Product.price}}" class="form-control" id="" aria-describedby="">
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">stock_quantity</label>
+    <input type="number" name="stock_quantity" value="{{Product.stock_quantity}}" class="form-control" id="" aria-describedby="">
+  </div>
+
+
+
+  
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock body %}
+    

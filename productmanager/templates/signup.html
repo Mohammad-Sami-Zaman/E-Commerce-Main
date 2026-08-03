@@ -1,0 +1,57 @@
+{% extends 'master/base.html' %}
+
+
+{% block head %}
+<title>Signup</title>
+{% endblock head %}
+    
+
+
+{% block body %}
+{% include 'master/messages.html' %}
+<h1>Signup Page</h1>   
+
+<form method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Username</label>
+        <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Full name</label>
+        <input type="text" name="full_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+
+
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Role</label>
+       <select class="form-select" name="role" aria-label="Default select example">
+            <option selected>Open this select menu</option>
+            <option value="Admin">Admin</option>
+            <option value="Seller">Seller</option>
+            <option value="Customer">Customer</option>
+        </select>
+    </div>
+
+
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+    <input type="password" name="password2" class="form-control" id="exampleInputPassword1">
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock body %}
+    

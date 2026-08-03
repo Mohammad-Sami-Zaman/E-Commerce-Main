@@ -1,0 +1,44 @@
+{% extends 'master/base.html' %}
+
+
+{% block head %}
+<title>Product buy</title>
+{% endblock head %}
+    
+
+
+{% block body %}
+{% include 'master/messages.html' %}
+<h1>Product buy</h1>   
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">product_name</label>
+        <input type="text" value="Product.product_name" readonly class="form-control" id="" aria-describedby="">
+    </div>
+
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">quantity</label>
+    <input type="number" name="quantity" class="form-control" id="" aria-describedby="">
+  </div>
+
+ 
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">order_status</label>
+       <select class="form-select" name="order_status" aria-label="Default select example">
+            
+                <option value="Pending" selected>Pending</option>   
+       
+        </select>
+    </div>
+
+
+  
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock body %}
+    

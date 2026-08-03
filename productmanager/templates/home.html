@@ -1,0 +1,40 @@
+{% extends 'master/base.html' %}
+
+
+{% block head %}
+<title>Home</title>
+{% endblock head %}
+    
+
+
+{% block body %}
+{% include 'master/messages.html' %}
+<h1>Profile</h1>   
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{request.user.username}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{request.user.full_name}}</h6>
+    <h6 class="card-subtitle mb-2 text-muted">{{request.user.email}}</h6>
+    <p class="card-text">{{request.user.role}}</p>
+    
+    {% if request.user.role == "Admin" %}
+    <div class="container"><a href="{% url 'product_catagory' %}" class="btn btn-primary"> Product Categories</a></div>
+        <br>
+       <div class="container">  <a href="{% url 'customer_list' %}" class="btn btn-primary">View customer_lists</a></div>
+        <br>
+         <div class="container"><a href="{% url 'seller_list' %}" class="btn btn-primary">View seller_list</a></div>
+    {% elif request.user.role == "Customer"%}
+        <a href="{% url 'order_list' %}" class="btn btn-primary"> Order Lists</a>
+
+    {% elif request.user.role == "Seller"%}
+        <a href="{% url 'seller_product_list' %}" class="btn btn-primary"> seller_product_list </a>
+    {% endif %}
+        
+    
+    
+  </div>
+</div>
+
+{% endblock body %}
+    

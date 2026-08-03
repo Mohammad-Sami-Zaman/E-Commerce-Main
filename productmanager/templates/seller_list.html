@@ -1,0 +1,81 @@
+{% extends 'master/base.html' %}
+
+
+{% block head %}
+<title>Product List</title>
+
+<style>
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2;}
+
+tr:hover {background-color: #ddd;}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+{% endblock head %}
+    
+
+
+{% block body %}
+
+<h1>Seller List</h1>   
+
+{% if request.user.role == 'Seller' %}
+    <a href="{% url 'product_add' %}" class="btn btn-primary">Add</a>
+{% endif %}
+    
+
+
+<table>
+  <tr>
+    <th>Seller Full Name</th>
+    
+    <th>Seller User Name</th>
+    
+    <th>Email</th>
+    
+    
+    
+    {% if request.user.role == 'Seller' %}
+        <th>action</th>
+    {% endif %}
+        
+    
+
+  </tr>
+
+  
+  {% for pc in Users %}
+
+  <tr>
+    <td>{{pc.full_name}}</td>
+    <td>{{pc.username}}</td>
+    <td>{{pc.email}}</td>
+    
+  </tr>
+    
+  {% endfor %}
+    
+  
+ 
+</table>
+
+
+{% endblock body %}
+    

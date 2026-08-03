@@ -1,0 +1,60 @@
+{% extends 'master/base.html' %}
+
+
+{% block head %}
+<title>Product Add</title>
+{% endblock head %}
+    
+
+
+{% block body %}
+{% include 'master/messages.html' %}
+<h1>Product Add</h1>   
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">product_name</label>
+        <input type="text" name="product_name" class="form-control" id="" aria-describedby="">
+    </div>
+
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">product_description</label>
+    <input type="text" name="product_description" class="form-control" id="" aria-describedby="">
+  </div>
+
+  <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">product_image</label>
+        <input type="file" name="product_image" class="form-control" id="" aria-describedby="">
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Role</label>
+       <select class="form-select" name="category_name" aria-label="Default select example">    
+            {% for c in pro_catagory %}
+                <option value="{{c.id}}">{{c.category_name}}</option>   
+            {% endfor %}       
+        </select>
+    </div>
+
+
+    <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">price</label>
+    <input type="number" name="price" class="form-control" id="" aria-describedby="">
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">stock_quantity</label>
+    <input type="number" name="stock_quantity" class="form-control" id="" aria-describedby="">
+  </div>
+
+
+
+  
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock body %}
+    
