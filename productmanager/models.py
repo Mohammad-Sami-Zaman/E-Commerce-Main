@@ -38,7 +38,7 @@ class ProductModel(models.Model):
     category = models.ForeignKey(CategoryModel, on_delete= models.CASCADE, null=True)
     product_name = models.CharField(max_length=100, null=True)
     product_description = models.TextField(null=True)
-    product_image = models.ImageField(upload_to='media/products', null=True)
+    product_image = models.ImageField(upload_to='products/', null=True)
     price = models.PositiveIntegerField(null=True)
     stock_quantity = models.PositiveIntegerField(null=True)
     created_at = models.DateField(auto_now_add=True)
