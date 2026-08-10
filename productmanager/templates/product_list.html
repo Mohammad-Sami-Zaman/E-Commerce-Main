@@ -72,7 +72,15 @@ th {
     <td>{{pc.product_description}}</td>
     <td>{{pc.price}}</td>
     <td>{{pc.stock_quantity}}</td>
-    <td><img src="{{ pc.product_image.url }}" alt="" width ='70px'></td>
+    <td>
+    {% if pc.product_image %}
+        <img src="{{ pc.product_image.url }}" 
+             alt="{{ pc.product_name }}" 
+             width="70px">
+    {% else %}
+        No Image
+    {% endif %}
+    </td>
 
 
     <td>{{pc.created_at}}</td>
