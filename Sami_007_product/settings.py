@@ -28,6 +28,8 @@ DEBUG = False
 ALLOWED_HOSTS = ['*']
 
 
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -119,3 +121,8 @@ STATIC_URL = 'static/'
 
 AUTH_USER_MODEL = 'productmanager.CustomUserModel'
 LOGIN_URL = 'login'
+
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://e-commerce-main-zjq7.onrender.com',
+]
